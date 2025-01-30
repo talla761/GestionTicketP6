@@ -8,8 +8,8 @@ namespace GestionTicketP6.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public DateTime Date_Creation { get; set; } // Date de création
-        public DateTime? Date_Resolution { get; set; } // Date de résolution (nullable)
+        public DateTime DateCreation { get; set; } // Date de création
+        public DateTime? DateResolution { get; set; } // Date de résolution (nullable)
 
         [Required]
         [MaxLength(250)]
@@ -17,7 +17,7 @@ namespace GestionTicketP6.Models
 
         [Required] 
         public string Probleme { get; set; } = string.Empty;       // Description du problème
-        public string Resolution { get; set; } = string.Empty;     // Résolution (nullable)
+        public string? Resolution { get; set; }    
 
         // Clé étrangère vers Version
         public int IdVersion { get; set; }

@@ -12,7 +12,7 @@ namespace GestionTicketP6.Models
 
         [Required]
         [MaxLength(250)]
-        public string Numero_Version { get; set; } = string.Empty;   // Numéro de version
+        public string NumeroVersion { get; set; } = string.Empty;   // Numéro de version
 
         //public DateTime Date_Lancement { get; set; } // Date de lancement
 

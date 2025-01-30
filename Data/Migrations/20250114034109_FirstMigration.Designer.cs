@@ -4,6 +4,7 @@ using GestionTicketP6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionTicketP6.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250114034109_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -56,7 +59,7 @@ namespace GestionTicketP6.Data.Migrations
                     b.Property<int>("IdProduit")
                         .HasColumnType("int");
 
-                    b.Property<string>("NumeroVersion")
+                    b.Property<string>("Numero_Version")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
@@ -94,7 +97,7 @@ namespace GestionTicketP6.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("NomOS")
+                    b.Property<string>("Nom_OS")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
@@ -112,10 +115,10 @@ namespace GestionTicketP6.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreation")
+                    b.Property<DateTime>("Date_Creation")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateResolution")
+                    b.Property<DateTime?>("Date_Resolution")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("IdOs")
@@ -129,6 +132,7 @@ namespace GestionTicketP6.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Resolution")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Statut")
